@@ -1,9 +1,9 @@
 {
-  "Name": "Keyboard Navigation",
-  "Author": "PanginoongJimmyG",
+  "Name": "KeyboardOnlyMode",
+  "Author": "GhostGoesBinted",
   "Version": "1.0.0",
-  "Description": "Comprehensive keyboard navigation for all menus and UI elements with customizable controls.",
-  "UniqueID": "PanginoongJimmyG.KeyboardNavigation",
+  "Description": "A KeyboardOnlyMode mod for Stardew Valley.",
+  "UniqueID": "GhostGoesBinted.KeyboardOnlyMode",
   "EntryDll": "KeyboardOnlyMode.dll",
   "MinimumApiVersion": "4.0.0"
 }

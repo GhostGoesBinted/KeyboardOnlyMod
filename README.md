@@ -1,35 +1,48 @@
-# Keyboard Navigation for Stardew Valley
+# Keyboard‑Only Mode for Stardew Valley
 
-A SMAPI mod that adds **comprehensive keyboard navigation** to all menus in Stardew Valley with customizable controls!
+Play comfortably without a mouse. This lightweight SMAPI mod adds:
 
-## Installation
+- Menu confirm with your own keys (simulates a left‑click on the focused UI).
+- Optional toolbar cycling outside menus (Q/E by default).
+- Cursor moves to the bottom‑right edge when menus close.
 
-1. Install [SMAPI](https://smapi.io/)
-2. Download this mod and put it in your `Stardew Valley/Mods/` folder
-3. Launch the game through SMAPI
+## ✅ Requirements
+- Stardew Valley 1.6+
+- SMAPI 4.x (https://smapi.io/)
 
-## Controls
+## 🧩 Install
+1. Download or build the mod.
+2. Copy the `KeyboardOnlyMode` folder into `Stardew Valley/Mods`.
+3. Launch the game through SMAPI.
 
-### GameMenu (ESC → Options/Inventory)
-- **Q/E**: Switch tabs 
-- **Arrow keys**: Navigate content
-- **Enter/Z**: Confirm
-- **Esc/X**: Cancel
+## 🎮 In‑game options (important)
+In Options → Controls:
+- Turn ON “Use controller‑style menus”.
+- Set “Gamepad mode” to “Force on”.
 
-### All Other Menus  
-- **Arrow keys**: Navigate
-- **Enter/Z**: Confirm
-- **Esc/X**: Cancel
-- **Q/E**: Scroll
+These enable focus/snapping so confirm works reliably from the keyboard.
 
-## Features
-- ✅ Navigate inventory slots, skills, social menu
-- ✅ Proper options menu navigation
-- ✅ Load game menu focuses on save files  
-- ✅ Mouse cursor auto-hides
-- ✅ Works with all menus
+## ⌨️ Controls
+- In menus: your configured ConfirmKeys trigger confirm. Escape/back is vanilla.
+- In gameplay: Q/E cycle the toolbar (configurable; on by default).
 
-That's it! Enjoy mouse-free Stardew Valley! 🎮
+This mod doesn’t change how you move around menus—it only adds reliable confirm and optional toolbar cycling.
 
----
-*For issues or suggestions, use the [Issues tab](https://github.com/PanginoongJimmyG/KeyboardOnlyMod/issues)*
+## ⚙️ Config
+Created on first run at `Mods/KeyboardOnlyMode/config.json`:
+
+```json
+{
+	"EnableToolbarCycle": true,
+	"ToolbarPrevKey": "Q",
+	"ToolbarNextKey": "E",
+	"ConfirmKeys": ["Enter", "Space"]
+}
+```
+
+If you install Generic Mod Config Menu you can change all options in‑game.
+
+
+
+—
+Issues or suggestions? Open an issue on the repository.

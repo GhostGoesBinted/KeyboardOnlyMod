@@ -2,6 +2,7 @@
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Menus;
+using System.Linq;
 
 namespace KeyboardNavigation
 {
@@ -13,14 +14,10 @@ namespace KeyboardNavigation
     {
         private ModConfig _config = new();
 
-        /// <summary>
-        /// SMAPI entry. Loads config, subscribes to input and menu events, and hooks GMCM.
-        /// </summary>
-        public override void Entry(IModHelper helper)
+       
+    public override void Entry(IModHelper helper)
         {
             _config = helper.ReadConfig<ModConfig>() ?? new ModConfig();
-            if (_config.ToolbarNextKey == SButton.None && _config.ToolbarCycleKey != SButton.None)
-                _config.ToolbarNextKey = _config.ToolbarCycleKey;
 
             helper.Events.Input.ButtonPressed += OnButtonPressed;
             helper.Events.Display.MenuChanged += OnMenuChanged;
@@ -32,8 +29,10 @@ namespace KeyboardNavigation
             );
         }
 
+      
         private void OnMenuChanged(object? sender, MenuChangedEventArgs e)
         {
+            
             if (e.OldMenu != null && e.NewMenu == null)
             {
                 int x = Game1.uiViewport.Width - 2;
@@ -53,7 +52,8 @@ namespace KeyboardNavigation
 
             if (menu != null)
             {
-                if (e.Button == SButton.Enter || e.Button == SButton.Space || e.Button == SButton.Z)
+                var confirmButtons = _config.ConfirmKeys ?? System.Array.Empty<SButton>();
+                if (confirmButtons.Contains(e.Button))
                 {
                     var cmp = menu.currentlySnappedComponent;
                     if (cmp != null)
@@ -94,5 +94,6 @@ namespace KeyboardNavigation
                 }
             }
         }
+
     }
 }

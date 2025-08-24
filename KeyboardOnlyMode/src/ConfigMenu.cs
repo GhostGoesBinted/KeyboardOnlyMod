@@ -42,6 +42,14 @@ namespace KeyboardNavigation
                 name: () => "Toolbar next key",
                 tooltip: () => "Default: E"
             );
+
+            gmcm.AddKeybindList(
+                mod: mod.ModManifest,
+                getValue: () => new KeybindList(getConfig().ConfirmKeys.Select(k => new Keybind(k)).ToArray()),
+                setValue: kb => { var c = getConfig(); c.ConfirmKeys = (kb?.Keybinds ?? Array.Empty<Keybind>()).SelectMany(k => k.Buttons ?? Array.Empty<SButton>()).Distinct().ToArray(); setConfig(c); },
+                name: () => "Confirm keys (in menus)",
+                tooltip: () => "Keys that trigger confirm in menus (simulate left-click)."
+            );
         }
 
         private static KeybindList ToKeybindList(SButton button)

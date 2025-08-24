@@ -3,7 +3,7 @@ using StardewModdingAPI;
 namespace KeyboardNavigation
 {
     /// <summary>
-    /// Mod configuration for toolbar cycling and legacy mapping support.
+    /// Mod configuration for toolbar cycling and confirm keys.
     /// </summary>
     internal class ModConfig
     {
@@ -13,7 +13,7 @@ namespace KeyboardNavigation
         public SButton ToolbarNextKey { get; set; } = SButton.E;
         /// <summary>Key to move to the previous toolbar slot (default Q).</summary>
         public SButton ToolbarPrevKey { get; set; } = SButton.Q;
-        /// <summary>Legacy single-key setting; mapped to <see cref="ToolbarNextKey"/> on load if set.</summary>
-        public SButton ToolbarCycleKey { get; set; } = SButton.None;
+    /// <summary>Keys that confirm in menus (defaults to Enter and Space).</summary>
+    public SButton[] ConfirmKeys { get; set; } = new[] { SButton.Enter, SButton.Space };
     }
 }
