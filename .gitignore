@@ -1,0 +1,21 @@
+# Build artifacts
+bin/
+obj/
+*.dll
+*.pdb
+*.zip
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Backup files
+*.backup
+*.bak
+*~

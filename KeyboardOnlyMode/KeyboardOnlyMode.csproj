@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>KeyboardOnlyMode</AssemblyName>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  <!-- Fallback: if GamePath isn't passed by MSBuild, use STARDEW_PATH env var -->
+  <GamePath Condition="'$(GamePath)' == '' and '$(STARDEW_PATH)' != ''">$(STARDEW_PATH)</GamePath>
+  <!-- Template-style properties for deploy target -->
+  <ModGameDir Condition="'$(GamePath)' != ''">$(GamePath)\Mods</ModGameDir>
+  <ModDestDir Condition="'$(ModGameDir)' != ''">$(ModGameDir)\$(AssemblyName)</ModDestDir>
+  </PropertyGroup>
+
+  <!-- ModBuildConfig will add the correct Stardew/SMAPI references using GamePath -->
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
+  </ItemGroup>
+
+  <!-- After build, copy DLL and manifest into the Mods folder if GamePath is available -->
+  <Target Name="InstallToMods" AfterTargets="Build" Condition="'$(ModDestDir)' != ''">
+    <Message Text="Copying $(AssemblyName) to $(ModDestDir)" Importance="high" />
+    <MakeDir Directories="$(ModDestDir)" />
+    <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll"
+      DestinationFiles="$(ModDestDir)\$(AssemblyName).dll"
+      OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="$(ProjectDir)manifest.json"
+      DestinationFiles="$(ModDestDir)\manifest.json"
+      OverwriteReadOnlyFiles="true" />
+    <!-- Copy default config only if one doesn't already exist in Mods -->
+    <Copy SourceFiles="$(ProjectDir)config.json"
+          DestinationFiles="$(ModDestDir)\config.json"
+          SkipUnchangedFiles="true"
+          OverwriteReadOnlyFiles="false"
+          Condition="Exists('$(ProjectDir)config.json') and !Exists('$(ModDestDir)\config.json')" />
+  </Target>
+
+  <ItemGroup>
+    <None Update="manifest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
