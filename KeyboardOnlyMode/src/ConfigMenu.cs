@@ -50,6 +50,14 @@ namespace KeyboardNavigation
                 name: () => "Confirm keys (in menus)",
                 tooltip: () => "Keys that trigger confirm in menus (simulate left-click)."
             );
+
+            gmcm.AddKeybindList(
+                mod: mod.ModManifest,
+                getValue: () => ToKeybindList(getConfig().SecondaryActionKey),
+                setValue: kb => { var c = getConfig(); c.SecondaryActionKey = FromKeybindList(kb); setConfig(c); },
+                name: () => "Secondary action key (right-click)",
+                tooltip: () => "Key for right-click action in menus. Default: C"
+            );
         }
 
         private static KeybindList ToKeybindList(SButton button)

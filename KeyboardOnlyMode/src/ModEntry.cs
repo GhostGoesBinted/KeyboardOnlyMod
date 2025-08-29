@@ -67,6 +67,22 @@ namespace KeyboardNavigation
                     }
                     this.Helper.Input.Suppress(e.Button);
                 }
+
+                // Secondary action (right-click) in menus
+                if (_config.SecondaryActionKey != SButton.None && e.Button == _config.SecondaryActionKey)
+                {
+                    var cmp = menu.currentlySnappedComponent;
+                    if (cmp != null)
+                    {
+                        var center = cmp.bounds.Center;
+                        menu.receiveRightClick(center.X, center.Y);
+                    }
+                    else
+                    {
+                        menu.receiveRightClick(Game1.getMouseX(), Game1.getMouseY());
+                    }
+                    this.Helper.Input.Suppress(e.Button);
+                }
                 return;
             }
 
