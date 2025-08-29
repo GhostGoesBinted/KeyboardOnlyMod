@@ -1,8 +1,14 @@
-# Keyboard‑Only Mode for Stardew Valley
+# Keyboard‑Only Mode for ## ⌨️ Controls
+- In menus: your configured ConfirmKeys trigger confirm. Escape/back is vanilla.
+- In menus: press C for secondary action (right-click). Configurable or disable in settings.
+- In gameplay: Q/E cycle the toolbar (configurable; on by default).
+
+This mod doesn't change how you move around menus—it only adds reliable confirm, secondary action, and optional toolbar cycling.ew Valley
 
 Play comfortably without a mouse. This lightweight SMAPI mod adds:
 
 - Menu confirm with your own keys (simulates a left‑click on the focused UI).
+- Secondary action key for right-click in menus (default C).
 - Optional toolbar cycling outside menus (Q/E by default).
 - Cursor moves to the bottom‑right edge when menus close.
 
@@ -36,13 +42,15 @@ Created on first run at `Mods/KeyboardOnlyMode/config.json`:
 	"EnableToolbarCycle": true,
 	"ToolbarPrevKey": "Q",
 	"ToolbarNextKey": "E",
-	"ConfirmKeys": ["Enter", "Space"]
+	"ConfirmKeys": ["Enter", "Space"],
+	"SecondaryActionKey": "C"
 }
 ```
 
 If you install Generic Mod Config Menu you can change all options in‑game.
 
-
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 —
 Issues or suggestions? Open an issue on the repository.
