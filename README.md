@@ -1,9 +1,9 @@
-# Keyboard‑Only Mode for ## ⌨️ Controls
+# Keyboard‑Only Mode for # ⌨️ Controls
 - In menus: your configured ConfirmKeys trigger confirm. Escape/back is vanilla.
 - In menus: press C for secondary action (right-click). Configurable or disable in settings.
 - In gameplay: Q/E cycle the toolbar (configurable; on by default).
 
-This mod doesn't change how you move around menus—it only adds reliable confirm, secondary action, and optional toolbar cycling.ew Valley
+This mod doesn't change how you move around menus—it only adds reliable confirm, secondary action, and optional toolbar cycling.
 
 Play comfortably without a mouse. This lightweight SMAPI mod adds:
 
