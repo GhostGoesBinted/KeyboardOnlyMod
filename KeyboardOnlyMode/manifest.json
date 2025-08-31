@@ -1,7 +1,7 @@
 {
   "Name": "KeyboardOnlyMode",
   "Author": "GhostGoesBinted",
-  "Version": "1.0.0",
+  "Version": "1.0.2",
   "Description": "A KeyboardOnlyMode mod for Stardew Valley.",
   "UniqueID": "GhostGoesBinted.KeyboardOnlyMode",
   "EntryDll": "KeyboardOnlyMode.dll",

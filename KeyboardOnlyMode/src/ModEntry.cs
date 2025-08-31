@@ -33,7 +33,7 @@ namespace KeyboardNavigation
         private void OnMenuChanged(object? sender, MenuChangedEventArgs e)
         {
             
-            if (e.OldMenu != null && e.NewMenu == null)
+            if (e.OldMenu != null && e.NewMenu == null && _config.EnableSmartCursor)
             {
                 int x = Game1.uiViewport.Width - 2;
                 int y = Game1.uiViewport.Height - 2;

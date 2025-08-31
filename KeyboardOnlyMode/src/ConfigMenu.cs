@@ -58,6 +58,14 @@ namespace KeyboardNavigation
                 name: () => "Secondary action key (right-click)",
                 tooltip: () => "Key for right-click action in menus. Default: C"
             );
+
+            gmcm.AddBoolOption(
+                mod: mod.ModManifest,
+                getValue: () => getConfig().EnableSmartCursor,
+                setValue: v => { var c = getConfig(); c.EnableSmartCursor = v; setConfig(c); },
+                name: () => "Enable smart cursor",
+                tooltip: () => "Move cursor to bottom-right when menus close."
+            );
         }
 
         private static KeybindList ToKeybindList(SButton button)

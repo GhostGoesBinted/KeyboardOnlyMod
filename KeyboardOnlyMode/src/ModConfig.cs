@@ -17,5 +17,7 @@ namespace KeyboardNavigation
     public SButton[] ConfirmKeys { get; set; } = new[] { SButton.Enter, SButton.Space };
         /// <summary>Key for secondary action (right-click) in menus (default C). Set to None to disable.</summary>
         public SButton SecondaryActionKey { get; set; } = SButton.C;
+        /// <summary>Enable smart cursor repositioning to bottom-right when menus close.</summary>
+        public bool EnableSmartCursor { get; set; } = true;
     }
 }
